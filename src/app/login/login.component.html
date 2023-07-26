@@ -1,0 +1,66 @@
+
+    <mat-grid-list cols="2" class="h-100-vh">
+        <mat-grid-tile class="h-100-vh">
+            <div class="rounded-rt-rb-xl bg-outer-circle w-100 h-150">
+                    <div class="rounded-rt-rb-xl bg-inner-circle w-90 h-100 flex flex-col justify-center items-center">
+                        <div>
+                            <img src="../../assets/images/logo.png">
+                        </div>
+                        <div>
+                            <h1 class="text-5xl font-bold">Make yourself at <span class="text-sky-400">Home</span></h1>
+                            
+                        </div>
+                    </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="h-100-vh">
+            <div class="w-100 justify-center flex flex-col items-center">
+            <div>
+            <h1 class="text-5xl font-mark-pro" >Authentication</h1>
+            </div>
+            <form #form="ngForm" class="login w-100 mt-12">
+                <div class="justify-center flex items-center flex-col">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                    <div class="w-1/2">
+                    <label>Email</label>
+                    </div>
+                    <mat-form-field class="w-1/2">
+                        <mat-label>Email</mat-label>
+                        <input
+                        matInput
+                        placeholder="Email"
+                        [(ngModel)]="user.email"
+                        type="text"
+                        name="email"
+                        required
+                        />
+                    </mat-form-field>
+                    </div>
+                </div>
+                <div class="w-100 justify-center flex items-center flex-col">
+                    <div class="w-1/2">
+                        <label>Password</label>
+                    </div>
+                    <mat-form-field class="w-1/2 flex">
+                    <mat-label>Password</mat-label>
+                    <input
+                    matInput
+                    placeholder="Password"
+                    [(ngModel)]="user.password"
+                    type="password"
+                    name="password"
+                    required
+                    />
+                    </mat-form-field>
+                </div>
+                <div class="w-100 flex justify-center">
+                    <button mat-raised-button color="lightblue" [disabled]="user.email.length == 0 || user.password.length == 0" (click)="login(user)" class="w-1/2">Login</button>
+                </div>
+                <div class="w-100 flex justify-center mt-5">
+                    <button mat-raised-button class="w-1/2"><span class="flex"><img src="../../assets/images/gmail.png" width="25" height="5">&nbsp;Continue with Gmail</span></button>
+                </div>
+              </form>
+            </div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
