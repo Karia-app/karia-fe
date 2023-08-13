@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserAuth } from '../shared/interfaces/user-auth'
-import { AuthService } from '../../../libs/src/lib/auth/auth.service';
+import { AuthService } from '../shared/services/auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +11,7 @@ export class LoginComponent {
     email : '',
     password : ''
   }
-  
+
   constructor(private authService: AuthService) {}
   login(userAuth : UserAuth){
       if (userAuth.email.length > 0 && userAuth.password.length > 0)

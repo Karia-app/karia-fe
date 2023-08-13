@@ -10,15 +10,19 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
+import {AuthService} from "./shared/services/auth/auth.service";
+import {AuthGuard} from "./shared/guards/auth/auth-guard";
+import {CommonModule} from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     CarouselComponent,
-    
+
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -27,7 +31,10 @@ import { CarouselComponent } from './home/carousel/carousel.component';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
