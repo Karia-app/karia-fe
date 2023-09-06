@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserAuth } from '../../../../../../../src/app/shared/interfaces/user-auth';
-import { AuthService } from '../../../../../../../src/app/shared/services/auth/auth.service';
+import { UserAuth } from '../../../../index';
+import { AuthService } from '../../../../index';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
