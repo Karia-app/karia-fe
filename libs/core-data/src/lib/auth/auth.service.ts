@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { UserAuth } from '../../interfaces/user-auth';
+import { UserAuth } from './user-auth'
 import { environment } from '../../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class AuthService {
   isAuthenticated$ = this.isAuthenticated.asObservable();
   constructor(private http : HttpClient,private router : Router) { }
   login(userAuth : UserAuth){
-    return this.http.post(this.getUrl(),userAuth,{observe : 'response'}).subscribe((response) =>
+    return this.http.post(this.getUrl(),userAuth,{observe : 'response'}).subscribe((response) => 
       {
         if (response.status == 200){
           const data :any = response.body;
