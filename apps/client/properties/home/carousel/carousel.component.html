@@ -1,10 +1,24 @@
-<div class="slider">
+<div class="slider" *ngIf="app_slides.length > 0 ">
     <div>
-        <div (click)="goToPrevious()" class="leftArrow">&lt;</div>
-        <div (click)="goToNext()" class="rightArrow">&gt;</div>
-    </div>
-    <div class="slide" [ngStyle]="{'background-image' : getCurrentSlideUrl()}"></div>
-    <div class="dotsContainer">
-        <div (click)="goToSlide(imageIndex)" *ngFor="let image of images;let imageIndex = index" class="dot">•</div>
-    </div>
+        <div (click)="goToPrevious()" class="leftArrow">
+            <fa-icon class="text-[#4FD4FF]" [icon]="faChevronCircleLeft"></fa-icon>
+        </div>
+        <div (click)="goToNext()" class="rightArrow">
+            <fa-icon class="text-[#4FD4FF]" [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+        </div>
+        <div class="overflow-hidden">
+            <div class="slide-container flex"
+                [ngStyle]="{'width': 100*app_slides.length + 'vw','transform' :'translateX('+ (-currentIndex*100) + 'vw)'} ">
+                <div class="slide" *ngFor="let slide of app_slides; let index = index"
+                    [ngStyle]="{'background-image' : getSlideUrl(index)}">
+                </div>
+        
+            </div>
+        </div>
+        <div class="dotsContainer absolute flex justify-center" [ngStyle]="{'width' : '95vw','top' : '450px'}">
+            <div (click)="goToSlide(imageIndex)" *ngFor="let slide of app_slides;let imageIndex = index" class="dot">
+                <fa-icon class="text-[#4FD4FF] text-2xl" [icon]="faCircle"></fa-icon>
+            </div>
+                </div>
 </div>

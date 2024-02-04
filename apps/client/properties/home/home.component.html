@@ -1,3 +1,29 @@
 <div>
-    <app-carousel></app-carousel>
+    <app-carousel [app_slides]="slides"></app-carousel>
+    <div class="p-8">
+        <p class="mb-8 lg:text-left text-center text-[#4FD4FF] font-bold"><fa-icon [icon]="faStar" /> Propriétés populaires
+            :</p>
+        <div class="w-100 mb-8">
+            <div class="flex flex-col lg:flex-row gap-5 lg:justify-between">
+                <div class="flex justify-center" *ngFor="let property of properties$ | async">
+                    <app-card [property]="property" />
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center p-5">
+            <button class="bg-[#4FD4FF] text-white rounded-md pl-4 pr-4 pt-2 pb-2">Voir plus</button>
+        </div>
+        <p class="mb-8 lg:text-left text-center text-[#4FD4FF] font-bold"><fa-icon [icon]="faFire" /> Nouveaux posts:
+            :</p>
+        <div class="w-100 mb-8">
+            <div class="flex flex-col lg:flex-row gap-5 lg:justify-between">
+                <div class="flex justify-center" *ngFor="let property of properties$ | async">
+                    <app-card [property]="property" />
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center p-5">
+            <button class="bg-[#4FD4FF] text-white rounded-md pl-4 pr-4 pt-2 pb-2">Voir plus</button>
+        </div>
+    </div>
 </div>

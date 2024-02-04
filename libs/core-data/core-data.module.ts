@@ -13,7 +13,7 @@ import { StateModule } from './src/lib/state/state.module';
   imports: [
     CommonModule,
     HttpClientModule,
-    StateModule
+    StateModule,
   ]
 })
 export class CoreDataModule { }

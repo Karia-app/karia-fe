@@ -1,0 +1,17 @@
+<div class="max-w-sm border border-white-200 rounded-lg shadow bg-[#F2FCFF]" *ngIf="property">
+    <a href="#">
+        <img class="rounded-t-lg h-64" [src]="property.src" alt="" />
+    </a>
+    <div class="p-5">
+        <h6 class="mb-2 text-xl font-bold tracking-tight text-black">{{ property.name }}</h6>
+        <p
+            [class]="'mb-3 text-[#00B934] font-bold ' + (property.availability == 'LOUE' ? 'text-blue-500' : property.availability == 'DISPONIBLE' ? 'text-green-500' : 'text-red-500')">
+            {{ property.availability }}</p>
+        <p class="mb-3 text-gray-400">Prix : <span class="text-[#00C1FF] font-bold">{{property.price}} TND/Mois</span>
+        </p>
+        <p class="text-black"><fa-icon [icon]="faStar"></fa-icon> {{property.rating}}/5 par
+            <span class="text-[#4FD4FF] font-bold">{{property.nbClients}} clients</span>
+        </p>
+    </div>
+
+</div>

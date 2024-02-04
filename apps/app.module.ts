@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import {AuthService} from "../libs/core-data/src/index";
+import {AuthService, CoreDataModule} from "../libs/core-data/src/index";
 import {AuthGuardService } from "../libs/core-data/src/index";
 import {CommonModule} from "@angular/common";
 import { UiLoginModule } from 'libs/core-data/src/lib/ui-login/lib/ui-login.module';
@@ -27,7 +27,8 @@ import { PropertiesModule } from './client/properties/properties.module'
     MatIconModule,
     HttpClientModule,
     UiLoginModule,
-    PropertiesModule
+    PropertiesModule,
+    CoreDataModule,
   ],
   providers: [
     AuthService,
