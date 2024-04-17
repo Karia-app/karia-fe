@@ -1,39 +1,54 @@
-.slide{
-    width:100%;
-    height:500px;
-    border-radius : 10px;
-    background-size: cover;
-    background-position: center;
+.slide {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
 }
-.rightArrow{
-    position:absolute;
-    top:50%;
-    transform : translate(0,-50%);
-    right:32px;
-    font-size: 45px;
-    color : #fff;
-    z-index:1;
-    cursor:pointer;
+.arrow {
+  display: flex;
+  flex: content;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+
+  border-radius: 50%;
+  font-size: 45px;
 }
-.leftArrow{
-    position:absolute;
-    top:50%;
-    transform : translate(0,-50%);
-    left:32px;
-    font-size: 45px;
-    color : #fff;
-    z-index:1;
-    cursor:pointer;
+
+.rightArrow {
+  padding-left: 3px;
+  right: 32px;
 }
-.slider{
-    position:relative;
-    height:100%;
+.leftArrow {
+  padding-right: 3px;
+  left: 32px;
 }
-.dotsContainer{
-    display:flex;
-    gap: 25px;
-    justify-content: center;
+.slider {
+  position: relative;
+  height: 100%;
 }
-.dot{
-    cursor: pointer;
+.dotsContainer {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+.dot {
+  background-color: #4fd4ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: -30px;
+}
+.dot:active {
+  background-color: #5a727a;
+}
+.dot:hover {
+  background-color: #15befb;
 }
