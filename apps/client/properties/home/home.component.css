@@ -8,3 +8,29 @@
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+.slide {
+  width: 100%;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.dotsContainer {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+.dot {
+  background-color: #4fd4ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: -30px;
+}
+.dot:active {
+  background-color: #5a727a;
+}
+.dot:hover {
+  background-color: #15befb;
+}
