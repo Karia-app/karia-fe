@@ -3,7 +3,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 html,
 body {
@@ -21,4 +21,10 @@ body {
 }
 .active {
     font-weight: bold;
+  }
+
+  .selected {
+    font-weight: bold;
+    color: rgb(56 189 248);
+    text-decoration: underline;
   }
