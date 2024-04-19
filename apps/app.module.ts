@@ -28,7 +28,7 @@ import { NavbarComponent } from './client/properties/navbar/navbar.component';
     MatIconModule,
     HttpClientModule,
     UiLoginModule,
-    PropertiesModule
+    PropertiesModule,
   ],
   providers: [
     AuthService,
