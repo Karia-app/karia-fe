@@ -14,6 +14,8 @@ import { StateModule } from './src/lib/state/state.module';
     CommonModule,
     HttpClientModule,
     StateModule
+  ],
+  declarations: [
   ]
 })
 export class CoreDataModule { }

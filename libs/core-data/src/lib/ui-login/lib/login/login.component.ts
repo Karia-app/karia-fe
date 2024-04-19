@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UserAuth } from '../../../../index';
 import { AuthService } from '../../../../index';
+import { RouterLink } from '@angular/router';
+RouterLink
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,13 +10,13 @@ import { AuthService } from '../../../../index';
 })
 export class LoginComponent {
   user : UserAuth = {
-    email : '',
+    username : '',
     password : ''
   }
 
   constructor(private authService: AuthService) {}
   login(userAuth : UserAuth){
-      if (userAuth.email.length > 0 && userAuth.password.length > 0)
+      if (userAuth.username.length > 0 && userAuth.password.length > 0)
       this.authService.login(userAuth);
   }
 }
