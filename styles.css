@@ -19,3 +19,6 @@ body {
     font-family: MarkPro;
     src: url("assets/fonts/MarkPro.ttf");
 }
+.active {
+    font-weight: bold;
+  }
