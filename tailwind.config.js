@@ -2,8 +2,10 @@
 module.exports = {
   content: [
     './src/**.{html,ts}',
-    './libs/core-data/src/lib/ui-login/lib/**',
-    './apps/client/properties/navbar/**'
+    './apps/client/properties/navbar/**',
+    './libs/core-data/src/lib/login/lib/**',
+    './libs/core-data/src/lib/register/lib/**',
+    './libs/core-data/src/lib/ui-forgot-password/lib/**'
   ],
   theme: {
     extend: {}

@@ -16,8 +16,8 @@ import { UiRegisterModule } from 'libs/core-data/src/lib/register/lib/ui-registe
 import { PropertiesModule } from './client/properties/properties.module'
 import { environment } from 'environments/environment'
 import { UiForgotModule } from 'libs/core-data/src/lib/ui-forgot-password/lib/ui-forgot.module'
-import { NavbarComponent } from './client/properties/navbar/navbar.component';
 import { UiLoginModule } from 'libs/core-data/src/lib/login/ui-login.module'
+import { NavbarComponent } from './client/properties/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,

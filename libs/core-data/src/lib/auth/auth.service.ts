@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, finalize, throwError } from 'rxjs';
 import { UserAuth } from './user-auth'
-import { environment } from '../../../../../environments/environment'
 import { UserRegister } from './user-register';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { environment } from './../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
