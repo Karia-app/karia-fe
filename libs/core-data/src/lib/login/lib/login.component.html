@@ -1,0 +1,59 @@
+<mat-grid-list cols="2" class="h-100-vh">
+    <mat-grid-tile class="h-100-vh">
+        <div class="rounded-rt-rb-xl bg-outer-circle w-100 h-150">
+            <div class="rounded-rt-rb-xl bg-inner-circle w-90 h-100 flex flex-col justify-center items-center">
+                <div>
+                    <img src="../../assets/images/logo.png">
+                </div>
+                <div>
+                    <h1 class="text-5xl font-bold">Make yourself at <span class="text-sky-400">Home</span></h1>
+
+                </div>
+            </div>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="h-100-vh">
+        <div class="w-100 justify-center flex flex-col items-center">
+            <div>
+                <h1 class="text-5xl font-mark-pro">Authentication</h1>
+            </div>
+            <form #form="ngForm" class="login w-100 mt-12">
+                <div class="justify-center flex items-center flex-col">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                        <div class="w-1/2">
+                            <label>Email</label>
+                        </div>
+                        <mat-form-field class="w-1/2">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Email" [(ngModel)]="user.username" type="text" name="email"
+                                required />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="w-100 justify-center flex items-center flex-col">
+                    <div class="w-1/2">
+                        <label>Password</label>
+                    </div>
+                    <mat-form-field class="w-1/2 flex">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" [(ngModel)]="user.password" type="password"
+                            name="password" required />
+                    </mat-form-field>
+                    <div class="flex justify-start w-1/2 mb-5">
+                        <p><a class="text-[#3da8cb]" routerLink="/forgot">Forgot Password ?</a></p>
+                    </div>
+                </div>
+
+                <div class="w-100 flex justify-center">
+                    <button mat-raised-button color="lightblue"
+                        [disabled]="user.username.length == 0 || user.password.length == 0" (click)="login(user)"
+                        class="w-1/2">Login</button>
+                </div>
+            </form>
+            <div class="mt-5 w-1/2 flex justify-end">
+                <p>No account yet ? <span class="text-[#3da8cb]"><a routerLink="/register">Sign up</a></span></p>
+            </div>
+        </div>
+    </mat-grid-tile>
+
+</mat-grid-list>
