@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { UserAuth } from '../../../../index';
 import { AuthService } from '../../../../index';
-import { RouterLink } from '@angular/router';
-RouterLink
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

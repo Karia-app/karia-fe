@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, finalize } from 'rxjs';
+import { BehaviorSubject, catchError, finalize, throwError } from 'rxjs';
 import { UserAuth } from './user-auth'
 import { environment } from '../../../../../environments/environment'
 import { UserRegister } from './user-register';
@@ -16,6 +16,9 @@ export class AuthService {
   }
   endpoint: string = "authenticate"
   registerEndpoint: string = "register"
+  forgotPasswordEndpoint: string = "forgot-password"
+  validateCodeEndpoint: string = "validate-code"
+  resetPasswordEndpoint: string = "reset-password"
   private isAuthenticated = new BehaviorSubject(this.getIsAuthenticated() || false);
   isAuthenticated$ = this.isAuthenticated.asObservable();
   constructor(private http: HttpClient, private router: Router, private storage: AngularFireStorage) { }
@@ -64,6 +67,28 @@ export class AuthService {
       }
     })
   }
+  sendReset(phoneNumber : string) {
+    return this.http.post(this.getForgotPasswordUrl(), { phoneNumber }, { observe: 'response' }).pipe(
+      catchError(error => {
+        // Handle errors here
+        return throwError(() => error);
+      }))
+  }
+  validateCode(code : string, phoneNumber: string) {
+    return this.http.post(this.getValidateCodeUrl(), { code,phoneNumber }).pipe(
+      catchError(error => {
+        // Handle errors here
+        return throwError(() => error);
+      }))
+  }
+   resetPassword(password: string,phoneNumber : string) {
+    return this.http.post(this.getResetPasswordUrl(), { password,phoneNumber }).pipe(
+      catchError(error => {
+        // Handle errors here
+        return throwError(() => error);
+      })
+    )
+  }
   logout(){
     this.setIsAuthenticated('','');
   }
@@ -87,10 +112,19 @@ export class AuthService {
     }
   }
 
-  getLoginUrl(){
+  getLoginUrl() : string{
     return `${environment.API_URL}/api/${this.endpoint}`
   }
-  getRegisterUrl() {
+  getRegisterUrl() : string{
     return `${environment.API_URL}/api/${this.registerEndpoint}`
+  }
+  getForgotPasswordUrl() : string{
+    return `${environment.API_URL}/api/${this.forgotPasswordEndpoint}` 
+  }
+  getValidateCodeUrl() : string{
+    return `${environment.API_URL}/api/${this.validateCodeEndpoint}` 
+  }
+  getResetPasswordUrl() : string{
+    return `${environment.API_URL}/api/${this.resetPasswordEndpoint}` 
   }
 }

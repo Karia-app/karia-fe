@@ -5,4 +5,5 @@ export interface UserRegister{
     password: string;
     login: string;
     email: string;
+    phoneNumber: string;
 }

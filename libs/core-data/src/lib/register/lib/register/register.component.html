@@ -24,8 +24,8 @@
                             <label>First Name</label>
                         </div>
                         <mat-form-field class="w-1/2">
-                            <mat-label>John</mat-label>
-                            <input matInput placeholder="John" [(ngModel)]="user.firstName" type="text" name="firstname"
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="First Name" [(ngModel)]="user.firstName" type="text" name="firstname"
                                 required />
                         </mat-form-field>
                     </div>
@@ -36,7 +36,7 @@
                             <label>Last Name</label>
                         </div>
                         <mat-form-field class="w-1/2">
-                            <mat-label>Doe</mat-label>
+                            <mat-label>Last Name</mat-label>
                             <input matInput placeholder="Doe" [(ngModel)]="user.lastName" type="text" name="lastname"
                                 required />
                         </mat-form-field>
@@ -48,7 +48,7 @@
                             <label>Email</label>
                         </div>
                         <mat-form-field class="w-1/2">
-                            <mat-label>john.doe@xyz.com</mat-label>
+                            <mat-label>Email</mat-label>
                             <input matInput placeholder="john.doe@xyz.com" [(ngModel)]="user.email" type="text"
                                 name="email" required />
                         </mat-form-field>
@@ -66,6 +66,15 @@
                         </div>
 
                     </div>
+                </div>
+                <div class="w-100 justify-center flex items-center flex-col">
+                    <div class="w-1/2">
+                        <label>Phone Number</label>
+                    </div>
+                    <mat-form-field class="w-1/2 flex">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput [(ngModel)]="user.phoneNumber" type="text" name="phonenumber" required />
+                    </mat-form-field>
                 </div>
                 <div class="justify-center flex items-center flex-col">
                     <div class="w-100 justify-center flex items-center flex-col">
@@ -89,12 +98,16 @@
                             name="password" required />
                     </mat-form-field>
                 </div>
+
                 <div class="w-100 flex justify-center">
                     <button mat-raised-button color="lightblue"
                         [disabled]="user.login.length == 0 || user.password.length == 0" (click)="register()"
                         class="w-1/2">Register</button>
                 </div>
             </form>
+                        <div class="mt-5 w-1/2 flex justify-end">
+                            <p>Already have an account ? <span class="text-[#3da8cb]"><a routerLink="/">Sign In</a></span></p>
+                        </div>
         </div>
     </mat-grid-tile>
 

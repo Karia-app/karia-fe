@@ -16,6 +16,7 @@ import { UiLoginModule } from 'libs/core-data/src/lib/ui-login/lib/ui-login.modu
 import { UiRegisterModule } from 'libs/core-data/src/lib/register/lib/ui-register.module'
 import { PropertiesModule } from './client/properties/properties.module'
 import { environment } from 'environments/environment'
+import { UiForgotModule } from 'libs/core-data/src/lib/ui-forgot-password/lib/ui-forgot.module'
 @NgModule({
   declarations: [
     AppComponent

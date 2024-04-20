@@ -6,8 +6,10 @@ import { AuthGuardService } from '../libs/core-data/src/index'
 import { LoginComponent } from 'libs/core-data/src/lib/ui-login/lib/login/login.component'
 import { HomeComponent } from 'apps/client/properties/home/home.component'
 import { RegisterComponent } from 'libs/core-data/src/lib/register/lib/register/register.component'
+import { ForgotComponent } from 'libs/core-data/src/lib/ui-forgot-password/lib/forgot/forgot.component'
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'forgot', component: ForgotComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component:RegisterComponent},
   { path: '**', component: AppComponent, canActivate: mapToCanActivate([AuthGuardService]) }

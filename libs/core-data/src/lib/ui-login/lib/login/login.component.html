@@ -52,7 +52,11 @@
                     required
                     />
                     </mat-form-field>
+                    <div class="flex justify-start w-1/2 mb-5">
+                        <p><a class="text-[#3da8cb]" routerLink="/forgot">Forgot Password ?</a></p>
+                    </div>
                 </div>
+
                 <div class="w-100 flex justify-center">
                     <button mat-raised-button color="lightblue" [disabled]="user.username.length == 0 || user.password.length == 0"
                         (click)="login(user)" class="w-1/2">Login</button>

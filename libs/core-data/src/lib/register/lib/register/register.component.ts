@@ -14,7 +14,8 @@ export class RegisterComponent {
     avatar: null,
     password: '',
     login: '',
-    email:'',
+    email: '',
+    phoneNumber: ''
   }
   constructor(private authService : AuthService) {}
   register() {
