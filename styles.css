@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+<<<<<<< HEAD
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+=======
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+>>>>>>> origin/master
 
 html,
 body {
@@ -15,6 +24,41 @@ body {
 }
 
 @font-face {
+<<<<<<< HEAD
   font-family: MarkPro;
   src: url("assets/fonts/MarkPro.ttf");
 }
+=======
+    font-family: MarkPro;
+    src: url("assets/fonts/MarkPro.ttf");
+}
+.active {
+    font-weight: bold;
+  }
+
+  .selected {
+    font-weight: bold;
+    color: rgb(56 189 248);
+    text-decoration: underline;
+  }
+  .test-klass .p-datepicker {
+    scale: 0.6;
+  }
+
+  .icon-container {
+  display: inline-block;
+  margin-right: 10px; /* Adjust spacing between icons as needed */
+}
+
+.blue-circle {
+  background-color: rgb(50, 188, 248);
+  border-radius: 50%;
+  padding: 3px;
+  margin: 3px; /* Adjust padding to control circle size */
+  color: white;
+}
+.blue-button {
+    background-color: rgb(50, 188, 248);
+    color: white;
+  }
+>>>>>>> origin/master

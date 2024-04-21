@@ -1,0 +1,77 @@
+<div class="flex mb-4" style="margin-top: 10px;">
+    <div class="w-1/2 bg-gray-400 h-12"><h2 style="font-size: xx-large;">Propriétés</h2></div>
+    <div class="w-1/2 bg-gray-500 h-12"><button><span style="background-color: rgb(56 189 248);border-radius: 5px; font-size: x-large; padding: 10%;margin: 2%;">Contacts</span></button> </div>
+  </div>
+  <nav class="nav nav-pills flex-column flex-sm-row" style="width: 25%;font-size: larger;">
+    <a class="flex-sm-fill text-sm-center  selected" aria-current="page" href="#">Posséde</a>
+    <a class="flex-sm-fill text-sm-center " href="#">A Louer</a>
+  </nav>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <label for="" class="form-label">Nom</label>
+        <input type="text" class="form-control custom-placeholder"
+         placeholder="Nom" >
+      </div>
+      <div class="col-md-auto">
+        <label for="" class="form-label">Etat</label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">moyenne</option>
+          <option value="2">bien</option>
+          <option value="3">trés bien</option>
+        </select>
+      </div>
+      <div class="col col-lg-2">
+        <label for="" class="form-label">Meublée</label>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">oui</option>
+          <option value="2">non</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class=" bg-cyan-100 card mb-3" style="margin: 6%;">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img style="height: 287px;" src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlNF9waG90b19vZl9hX2ZyYW1lX2luX3RoZV9saXZpbmdfcm9vbV9pbl90aGVfc3R5bF85YWM1MjY1ZS02OTdjLTQ4OWMtYTFmYS03NzgzMjJlMTEwODNfMi5qcGc.jpg" class="rounded-start" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body" style="height: 80%;">
+          <div class="row">
+            <div class="col">
+              <h5 style="font-size: x-large;" class="card-title">villa nasr 2</h5>
+            </div>
+            <div class="col-md-auto">
+              
+            </div>
+            <div class="col col-md-auto">
+              <button class="blue-circle"><mat-icon matBadge="2" matBadgeColor="warn">message</mat-icon></button>
+              <button class="blue-circle"><mat-icon >edit</mat-icon></button>
+              <button class="blue-circle"><mat-icon >delete</mat-icon></button>
+            </div>
+          </div>
+          <p class="card-text">description here</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        </div>
+        <div class="row">
+          <div class="col col d-flex justify-content-center align-items-center">
+            <button class="btn btn-dark">Détails contrat</button>
+          </div>
+          <div class="col col d-flex justify-content-center align-items-center">
+            <button class="btn btn-dark">Détails de la propriété</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        
+        <div class="d-flex align-items-center justify-content-center" style="height: 250px; overflow: hidden;" >
+          <p-calendar class="" [styleClass]="'test-klass'" [inline]="true"></p-calendar>
+        </div>
+        <div class="text-center">
+          <button style="    display: inline-flex;          " class=" btn blue-button"><mat-icon>cancel</mat-icon> <span class="ml-1">Annuler la visite</span></button>
+        </div>
+      </div>
+    </div>
+  </div>

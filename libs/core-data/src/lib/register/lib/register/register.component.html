@@ -1,0 +1,114 @@
+<mat-grid-list cols="2" class="h-100-vh overflow-scroll">
+    <mat-grid-tile class="h-100-vh">
+        <div class="rounded-rt-rb-xl bg-outer-circle w-100 h-150">
+            <div class="rounded-rt-rb-xl bg-inner-circle w-90 h-100 flex flex-col justify-center items-center">
+                <div>
+                    <img src="../../assets/images/logo.png">
+                </div>
+                <div>
+                    <h1 class="text-5xl font-bold">Make yourself at <span class="text-sky-400">Home</span></h1>
+
+                </div>
+            </div>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="h-100-vh">
+        <div class="w-100 justify-center flex flex-col items-center">
+            <div>
+                <h1 class="text-5xl font-mark-pro">Register</h1>
+            </div>
+            <form #form="ngForm" class="login w-100 mt-12">
+                <div class="justify-center flex items-center flex-col">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                        <div class="w-1/2">
+                            <label>First Name</label>
+                        </div>
+                        <mat-form-field class="w-1/2">
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="First Name" [(ngModel)]="user.firstName" type="text" name="firstname"
+                                required />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="justify-center flex items-center flex-col">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                        <div class="w-1/2">
+                            <label>Last Name</label>
+                        </div>
+                        <mat-form-field class="w-1/2">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="Doe" [(ngModel)]="user.lastName" type="text" name="lastname"
+                                required />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="justify-center flex items-center flex-col">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                        <div class="w-1/2">
+                            <label>Email</label>
+                        </div>
+                        <mat-form-field class="w-1/2">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="john.doe@xyz.com" [(ngModel)]="user.email" type="text"
+                                name="email" required />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="justify-center flex items-center flex-col mb-5">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                        <div class="w-1/2">
+                            <label>Avatar</label>
+                            <input #pngInput hidden="true" type="file" onclick="this.value=null"
+                                (change)="pngInputChange($event)" accept=".png, .jpg" />
+                            <button type="button" mat-flat-button color="lightblue" class="w-100"
+                                (click)="pngInput.click()">Drop
+                                Image</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="w-100 justify-center flex items-center flex-col">
+                    <div class="w-1/2">
+                        <label>Phone Number</label>
+                    </div>
+                    <mat-form-field class="w-1/2 flex">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput [(ngModel)]="user.phoneNumber" type="text" name="phonenumber" required />
+                    </mat-form-field>
+                </div>
+                <div class="justify-center flex items-center flex-col">
+                    <div class="w-100 justify-center flex items-center flex-col">
+                        <div class="w-1/2">
+                            <label>Username</label>
+                        </div>
+                        <mat-form-field class="w-1/2">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Username" [(ngModel)]="user.login" type="text" name="username"
+                                required />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="w-100 justify-center flex items-center flex-col">
+                    <div class="w-1/2">
+                        <label>Password</label>
+                    </div>
+                    <mat-form-field class="w-1/2 flex">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" [(ngModel)]="user.password" type="password"
+                            name="password" required />
+                    </mat-form-field>
+                </div>
+
+                <div class="w-100 flex justify-center">
+                    <button mat-raised-button color="lightblue"
+                        [disabled]="user.login.length == 0 || user.password.length == 0" (click)="register()"
+                        class="w-1/2">Register</button>
+                </div>
+            </form>
+                        <div class="mt-5 w-1/2 flex justify-end">
+                            <p>Already have an account ? <span class="text-[#3da8cb]"><a routerLink="/">Sign In</a></span></p>
+                        </div>
+        </div>
+    </mat-grid-tile>
+
+</mat-grid-list>
