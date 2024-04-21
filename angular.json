@@ -18,7 +18,11 @@
             "main": "main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
+<<<<<<< HEAD
+            "assets": ["src/favicon.ico", "src/assets"],
+=======
             "assets": ["favicon.ico", "assets"],
+>>>>>>> origin/master
             "styles": ["styles.css"],
             "scripts": []
           },
