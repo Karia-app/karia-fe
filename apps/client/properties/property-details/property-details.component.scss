@@ -1,0 +1,16 @@
+@import "../../../../styles.scss";
+.main-layout {
+    background: rgb(207,250,254);
+    background: linear-gradient(180deg, rgba(207,250,254,1) 0%, rgba(255,255,255,1) 100%);
+    padding: 64px;
+    margin: 0;
+}
+.property-details {
+    padding-top: 32px;
+}
+.tab-content {
+    padding-top:50px
+}
+.agent-info {
+    margin: 4px 4px;
+}

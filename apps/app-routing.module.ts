@@ -7,12 +7,14 @@ import { HomeComponent } from 'apps/client/properties/home/home.component'
 import { RegisterComponent } from 'libs/core-data/src/lib/register/lib/register/register.component'
 import { ForgotComponent } from 'libs/core-data/src/lib/ui-forgot-password/lib/forgot/forgot.component'
 import { PropertyComponent } from 'apps/client/properties/property/property.component'
+import { PropertyDetailsComponent } from './client/properties/property-details/property-details.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'home', component: HomeComponent },
   { path: 'property', component:  PropertyComponent},
   { path: 'register', component: RegisterComponent },
+  { path: 'property-details', component: PropertyDetailsComponent},
   {
     path: '**',
     component: AppComponent,

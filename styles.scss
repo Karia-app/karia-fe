@@ -7,8 +7,15 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/themes/md-light-indigo/theme.css";
 @import "primeng/resources/primeng.css";
+@import "./apps/custom-theme.scss";
+@import "primeicons/primeicons.css";
+
+
+$primary: #cffafe;
+$accent: #38bdf8;
+
 html,
 body {
   height: 100%;

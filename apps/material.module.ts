@@ -15,9 +15,13 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AvatarModule } from 'primeng/avatar';
 
 @NgModule({
   exports: [
+    AvatarModule,
+    MatTabsModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
