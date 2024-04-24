@@ -14,7 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { CommonModule } from '@angular/common'
 import { UiRegisterModule } from 'libs/core-data/src/lib/register/lib/ui-register.module'
 import { PropertiesModule } from './client/properties/properties.module'
-import { environment } from 'environments/environment'
+import { environment } from 'libs/environments/environment'
 import { UiForgotModule } from 'libs/core-data/src/lib/ui-forgot-password/lib/ui-forgot.module'
 import { UiLoginModule } from 'libs/core-data/src/lib/login/ui-login.module'
 import { NavbarComponent } from './client/properties/navbar/navbar.component';
