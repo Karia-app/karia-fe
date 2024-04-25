@@ -30,6 +30,7 @@ export class PropertyDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  isLoading = false;
   imagesOutOfBound = false;
   submitted = false;
   primaryImageLocal: ImageData = {
@@ -74,6 +75,7 @@ export class PropertyDialogComponent {
     this.primaryImageLocal = { url: '', file: null }
   }
   createProperty() {
+    this.isLoading = true;
     this.submitted = true;
     if (this.primaryImageLocal.file != null) {
       const res = this.propertyService.createProperty(this.data, this.primaryImageLocal, this.secondaryImagesLocal);
@@ -82,7 +84,8 @@ export class PropertyDialogComponent {
           observable.subscribe({
             next: (data: any) => {
               console.log(data);
-              this.onNoClick()
+              this.onNoClick();
+              this.isLoading = false;
             },
             error: (error: any) => {
               console.log(error);
@@ -91,6 +94,7 @@ export class PropertyDialogComponent {
         }
       
       })
+      this.isLoading = false;
     }
   }
 }
