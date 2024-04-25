@@ -9,10 +9,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { PropertyDetailsComponent } from './property-details/property-details.component';
 import { MatTabsModule } from '@angular/material/tabs'
-import { AvatarModule } from 'primeng/avatar'
+import { AvatarModule } from 'primeng/avatar';
+import { GoogleMapsComponent } from './google-maps/google-maps.component'
 @NgModule({
   imports: [CommonModule,CalendarModule,MatIconModule,MatBadgeModule, MatTabsModule, AvatarModule],
-  declarations: [HomeComponent, CarouselComponent,PropertyComponent, PropertyDetailsComponent],
-  exports: [HomeComponent,PropertyComponent]
+  declarations: [HomeComponent, CarouselComponent,PropertyComponent, PropertyDetailsComponent, GoogleMapsComponent],
+  exports: [HomeComponent,PropertyComponent, GoogleMapsComponent]
 })
 export class PropertiesModule {}
