@@ -35,7 +35,7 @@ export class GoogleMapsComponent implements AfterViewInit {
     // Initialize Google Map
     this.map = new google.maps.Map(mapElement, {
       center: { lat: 36.8065, lng: 10.1815 }, // Default center coordinates for Tunisia
-      zoom: 8
+      zoom: 12
     });
 
     this.directionsService = new google.maps.DirectionsService();
