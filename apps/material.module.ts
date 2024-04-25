@@ -17,7 +17,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AvatarModule } from 'primeng/avatar';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatBadgeModule } from '@angular/material/badge'
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog'
+import { FormsModule } from '@angular/forms';
 @NgModule({
   exports: [
     AvatarModule,
@@ -38,6 +42,11 @@ import { AvatarModule } from 'primeng/avatar';
     MatTableModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    MatDatepickerModule,
+    MatBadgeModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    FormsModule
   ],
 })
 export class MaterialModule {}

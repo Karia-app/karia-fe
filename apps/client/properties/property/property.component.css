@@ -1,0 +1,9 @@
+.main-layout {
+    background: rgb(207,250,254);
+    background: linear-gradient(180deg, rgba(207,250,254,1) 0%, rgba(255,255,255,1) 100%);
+    margin: 0;
+}
+.cstm-styling {
+    border-radius: 25px;
+    background: rgb(50, 188, 248) !important;
+}
