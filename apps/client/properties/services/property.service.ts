@@ -79,4 +79,19 @@ export class PropertyService {
         throw new Error('User token not found.');
       }
     }
+
+    getUserById(userId: number): Observable<any> {
+      const stringifiedUserInfo: string | null = localStorage.getItem('token');
+      if (stringifiedUserInfo) {
+        const userInfo = JSON.parse(stringifiedUserInfo);
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${userInfo.id_token}`,
+          'Access-Control-Allow-Origin': '*',
+        });
+        return this.http.get(`http://localhost:8080/services/kariamain/api/karia-users/${userId}`, { headers });
+      } else {
+        console.log('User token not found.');
+        throw new Error('User token not found.');
+      }
+    }
   }

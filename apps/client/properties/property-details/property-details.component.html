@@ -1,30 +1,49 @@
 <div class="main-layout">
     <div class="main-showcase grid grid-cols-5 gap-6">
         <!--refactor to component later-->
-        <div class="col-span-3">
+        <div *ngIf="property.image1 != ''" class="col-span-3">
                 <img class="object-cover h-full w-full rounded-lg " src="{{ property.image1 }}" alt="">
         </div>
+        <div *ngIf="property.image1 == ''" class="col-span-3">
+            <img class="object-cover h-full w-full rounded-lg " src="../../../../assets/images/placeholder-property.webp" alt="">
+        </div>
         <div class="grid grid-rows-2 gap-6">
-            <div>
+            <div *ngIf="property.image2 != ''">
                 <img class="object-cover h-full w-full rounded-lg " src="{{ property.image2 }}" alt="">
             </div>
-            <div>
+            <div *ngIf="property.image2 == ''">
+                <img class="object-cover h-full w-full rounded-lg " src="../../../../assets/images/placeholder-property.webp" alt="">
+            </div>
+            <div *ngIf="property.image3 != ''">
                 <img class="object-cover h-full w-full rounded-lg " src="{{ property.image3 }}" alt="">
+            </div>
+            <div *ngIf="property.image3 == ''">
+                <img class="object-cover h-full w-full rounded-lg " src="../../../../assets/images/placeholder-property.webp" alt="">
             </div>
         </div>
         <div class="grid grid-rows-2 gap-6">
-            <div>
+            <div *ngIf="property.image4 != ''">
                 <img class="object-cover h-full w-full rounded-lg " src="{{ property.image4 }}" alt="">
             </div>
-            <div>                
+            <div *ngIf="property.image4 == ''">
                 <img class="object-cover h-full w-full rounded-lg " src="../../../../assets/images/placeholder-property.webp" alt="">
             </div>
+            <div *ngIf="property.image5 != ''">                
+                <img class="object-cover h-full w-full rounded-lg " src="{{ property.image5 }}" alt="">
             </div>
+            <div *ngIf="property.image5 == ''">                
+                <img class="object-cover h-full w-full rounded-lg " src="../../../../assets/images/placeholder-property.webp" alt="">
+            </div>
+        </div>
     </div>
     <div class="property-details">
         <div class="property-title grid grid-cols-3 gap-2">
             <div class="col-span-2 row-auto">
-                <span class="text-5xl font-bold block">{{property.name}}</span>
+                <div class="flex ">
+                    <span class="text-5xl font-bold mr-5">{{property.name}}</span>
+                    <p-tag styleClass="flex mt-3" *ngIf="property.state === 'AVAILABLE' " severity="success" value="Available"></p-tag>
+                    <p-tag styleClass="flex mt-3" *ngIf="property.state === 'UNAVAILABLE' " severity="danger" value="Unavailable"></p-tag>
+                </div>
                 <span class="text-2xl block mt-2">{{property.address}}</span>
                 <div class="general-info-card mt-8">
                     <div class="w-11/12">

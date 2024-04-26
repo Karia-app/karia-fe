@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Property } from '../models/property';
 import { PropertyService } from '../services/property.service';
 
+
 interface IconUrls {
   [key: string]: string; // Index signature for string keys with string values
 }
@@ -34,6 +35,11 @@ export class PropertyDetailsComponent implements OnInit {
     image5: "fill",
     ownerId: 0,
 };
+  userInfo = {
+    firstName: '',
+    lastName: '',
+    address:''
+  }
   iconUrls: IconUrls = {
     'DRIVING': '../../../../assets/images/driving.svg',
     'TRANSIT': '../../../../assets/images/walking.svg', 
@@ -49,7 +55,7 @@ export class PropertyDetailsComponent implements OnInit {
   }
 
   fetchData() {
-    this.propertyService.getPropertyById(1513).subscribe((response: any) => {
+    this.propertyService.getPropertyById(1500).subscribe((response: any) => {
       if (response) {
         this.property = response;
       } else {
@@ -60,8 +66,24 @@ export class PropertyDetailsComponent implements OnInit {
     });
   }
 
+  fetchUserData() {
+    this.propertyService.getUserById(1500).subscribe((response: any) => {
+      if (response) {
+        this.userInfo.firstName= response.firstName
+        this.userInfo.lastName= response.lastName
+        this.userInfo.address= response.address
+        console.log(this.userInfo)
+      } else {
+        console.error('User Not Found');
+      }
+    }, (error) => {
+      console.error('Error fetching User:', error);
+    });
+  }
+
   ngOnInit(): void {
     this.fetchData();
+    this.fetchUserData();
   }
 
 

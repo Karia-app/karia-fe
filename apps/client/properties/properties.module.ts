@@ -13,6 +13,7 @@ import { PropertyDialogComponent } from './property-dialog/property-dialog.compo
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker'; // Import MatDatepickerModule
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker'; // Import Ma
     MatTabsModule,
     AvatarModule,
     MatDatepickerModule,
+    TagModule,
   ],
   declarations: [
     HomeComponent,
