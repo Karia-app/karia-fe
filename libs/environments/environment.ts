@@ -13,4 +13,3 @@ export const environment = {
   },
   googleMapsApiKey: 'AIzaSyAYhT5-YOk78TJsYnI-wDUEgC4hkPuqW3g'
 }
-

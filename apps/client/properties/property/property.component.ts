@@ -4,6 +4,7 @@ import {
 } from '@angular/material/dialog'
 import { Property } from '../models/property';
 import { PropertyDialogComponent } from '../property-dialog/property-dialog.component';
+import { PropertyService } from '../services/property.service';
 @Component({
   selector: 'app-property',
   templateUrl: './property.component.html',
@@ -11,7 +12,7 @@ import { PropertyDialogComponent } from '../property-dialog/property-dialog.comp
 })
 export class PropertyComponent implements OnInit {
   property : Property = {
-    id: 0,
+    id:0,
     name: '',
     description: '',
     address: '',
@@ -27,7 +28,8 @@ export class PropertyComponent implements OnInit {
     image5: '',
     ownerId : 1050,
   }
-  constructor(public dialog : MatDialog){}
+  properties:Property[]=[]
+  constructor(public dialog : MatDialog,private propertyService: PropertyService){}
   selected: Date | null = null;
   openDialog():void {
     const dialogRef = this.dialog.open(PropertyDialogComponent, {
@@ -50,6 +52,20 @@ export class PropertyComponent implements OnInit {
     })
   }
   ngOnInit() {
+    this.retrieveProperties();
   }
-
+  retrieveProperties(): void {
+    this.propertyService.getProperties()
+      .subscribe({
+        next: (data) => {
+          this.properties = data;
+        },
+        error: (e) => {console.error(e)
+        },
+       complete : () => {
+        console.log(this.properties)
+      }
+      
+    });
+  }
 }
