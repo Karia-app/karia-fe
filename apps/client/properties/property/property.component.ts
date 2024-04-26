@@ -11,6 +11,7 @@ import { PropertyDialogComponent } from '../property-dialog/property-dialog.comp
 })
 export class PropertyComponent implements OnInit {
   property : Property = {
+    id: 0,
     name: '',
     description: '',
     address: '',

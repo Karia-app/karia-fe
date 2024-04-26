@@ -24,8 +24,8 @@
     <div class="property-details">
         <div class="property-title grid grid-cols-3 gap-2">
             <div class="col-span-2 row-auto">
-                <span class="text-5xl font-bold block">Property title here</span>
-                <span class="text-2xl block mt-2">address, example, here</span>
+                <span class="text-5xl font-bold block">{{property.name}}</span>
+                <span class="text-2xl block mt-2">{{property.address}}</span>
                 <div class="general-info-card mt-8">
                     <div class="w-11/12">
                         <div class="mx-8 p-4 border-2 shadow-md border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light rounded-2xl bg-white">
@@ -56,7 +56,7 @@
                     <mat-tab-group>
                         <mat-tab label="Description"> 
                             <div class="mt-4 mx-4">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                {{property.description}}
                                 <div>
                                     <div class="text-left text-gray-950 font-bold text-3xl block my-4">Local Information</div>
                                     <app-google-maps (routeInfoReady)="onRouteInfoReady($event)"></app-google-maps>
@@ -72,7 +72,12 @@
                         </mat-tab>
                         <mat-tab label="Information">
                             <div class="mt-4 mx-4">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                <div>
+                                    {{property.location}}
+                                </div>
+                                <div>
+                                    {{property.state == "AVAILABLE" ? "this property is available for renting as it is rented by no one at the moment" : "this property is unavailable for renting for the moment, you can check its status in another time"}}
+                                </div>
                             </div>
                         </mat-tab>
                         <mat-tab label="Pricing History">
