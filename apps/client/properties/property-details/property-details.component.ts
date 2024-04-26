@@ -1,8 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouteInfo } from '../google-maps/maps-route.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Property } from '../models/property';
 import { PropertyService } from '../services/property.service';
+import { ActivatedRoute } from '@angular/router';
 
 interface IconUrls {
   [key: string]: string; // Index signature for string keys with string values
@@ -39,7 +40,9 @@ export class PropertyDetailsComponent implements OnInit {
     'TRANSIT': '../../../../assets/images/walking.svg', 
   };
 
-  constructor(private propertyService: PropertyService){
+ id:any;
+
+  constructor(private propertyService: PropertyService,private route:ActivatedRoute){
     this.dateBooking = new Date();
   }
 
@@ -47,9 +50,11 @@ export class PropertyDetailsComponent implements OnInit {
     this.routeInfos = routeInfos;
     console.log('Received route information:', this.routeInfos);
   }
+  
 
   fetchData() {
-    this.propertyService.getPropertyById(1513).subscribe((response: any) => {
+    console.log(this.id)
+    this.propertyService.getPropertyById(this.id).subscribe((response: any) => {
       if (response) {
         this.property = response;
       } else {
@@ -61,7 +66,12 @@ export class PropertyDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchData();
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+      console.log(this.id)
+      this.fetchData();
+      // Now productId contains the ID passed through the URL
+    });
   }
 
 

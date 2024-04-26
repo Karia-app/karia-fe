@@ -66,6 +66,19 @@ export class PropertyService {
     console.log(firebaseImageUrls);
     return firebaseImageUrls;
     }
+    getPropertyById(propertyId: number): Observable<any> {
+      const stringifiedUserInfo: string | null = localStorage.getItem('token');
+      if (stringifiedUserInfo) {
+        const userInfo = JSON.parse(stringifiedUserInfo);
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${userInfo.id_token}`
+        });
+        return this.http.get(`http://localhost:8080/services/property/api/properties/${propertyId}`, { headers });
+      } else {
+        console.log('User token not found.');
+        throw new Error('User token not found.');
+      }
+    }
  
     getProperties(): Observable<Property[]> {
       const stringifiedUserInfo=localStorage.getItem('token');
@@ -79,4 +92,5 @@ export class PropertyService {
         return of<Property[]>([]);
       }
 }
+
   }
