@@ -36,57 +36,59 @@
           </div>
         </div>
         <div class="w-100 d-flex justify-content-end mt-3">
-          <button mat-flat-button color="primary" class="cstm-styling" (click)="openDialog()">Ajouter une propriété</button>
+          <button mat-flat-button color="primary" class="btn cstm-styling" (click)="openDialog()">Ajouter une propriété</button>
         </div>
-        <div class="mt-5">
-          <div
-            class=" bg-cyan-50 card border-2 shadow-md border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light rounded-2xl">
-            <div class="row g-0">
-              <div class="col-md-3">
-                    <img
-                      src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlNF9waG90b19vZl9hX2ZyYW1lX2luX3RoZV9saXZpbmdfcm9vbV9pbl90aGVfc3R5bF85YWM1MjY1ZS02OTdjLTQ4OWMtYTFmYS03NzgzMjJlMTEwODNfMi5qcGc.jpg"
-                      class="h-100 rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-6">
-                      <div class="card-body" style="height: 80%;">
-                        <div class="row">
-                          <div class="col">
-                            <h5 style="font-size: x-large;" class="card-title">villa nasr 2</h5>
-                          </div>
-                          <div class="col-md-auto">
-                    
-                          </div>
-                          <div class="col col-md-auto">
-                            <button class="blue-circle"><mat-icon matBadge="2" matBadgeColor="warn">message</mat-icon></button>
-                          <button class="blue-circle"><mat-icon>edit</mat-icon></button>
-                          <button class="blue-circle"><mat-icon>delete</mat-icon></button>
-                          </div>
-                          </div>
-                          <p class="card-text">description here</p>
-                          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                          </div>
+        <div>
+          <div class="mt-5" *ngFor="let property of properties">
+            <div
+              class=" bg-cyan-50 card border-2 shadow-md border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light rounded-2xl">
+              <div class="row g-0">
+                <div class="col-md-3">
+                      <img
+                        src="{{property.image1}}"
+                        class="h-100 rounded-start" >
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card-body" style="height: 80%;">
                           <div class="row">
-                            <div class="col col d-flex justify-content-center align-items-center">
-                              <button class="btn btn-dark">Détails contrat</button>
+                            <div class="col">
+                              <h5 style="font-size: x-large;" class="card-title">{{property.name}}</h5>
                             </div>
-                            <div class="col col d-flex justify-content-center align-items-center">
-                              <button class="btn btn-dark">Détails de la propriété</button>
-                            </div>
-                          </div>
-                          </div>
-                          <div class="col-md-3 d-flex justify-content-center align-items-center p-4">
-                            <div class="d-flex flex-col align-items-center justify-content-center gap-3 h-100 overflow-hidden rounded-md">
-                              <mat-calendar [(selected)]="selected" class="bg-white p-3"></mat-calendar>
-                              <button class=" btn blue-button w-100 justify-content-center d-flex"><span
-                                  class="d-flex gap-2"><mat-icon>cancel</mat-icon> Annuler la
-                                  visite</span></button>
-                            </div>
-                      </div>
+                            <div class="col-md-auto">
                       
-                      </div>
-                      </div>
-                      </div>
-                      </div>
+                            </div>
+                            <div class="col col-md-auto">
+                              <button class="blue-circle"><mat-icon matBadge="2" matBadgeColor="warn">message</mat-icon></button>
+                            <button class="blue-circle"><mat-icon>edit</mat-icon></button>
+                            <button class="blue-circle"><mat-icon>delete</mat-icon></button>
+                            </div>
+                            </div>
+                            <p class="card-text">{{property.description}}</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                            <div class="row">
+                              <div class="col col d-flex justify-content-center align-items-center">
+                                <button class="btn btn-dark">Détails contrat</button>
+                              </div>
+                              <div class="col col d-flex justify-content-center align-items-center">
+                                <button class="btn btn-dark"><a href="/property-details/{{property.id}}">Détails de la propriété</a></button>
+                              </div>
+                            </div>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center align-items-center p-4">
+                              <div class="d-flex flex-col align-items-center justify-content-center gap-3 h-100 overflow-hidden rounded-md">
+                                <mat-calendar [(selected)]="selected" class="bg-white p-3"></mat-calendar>
+                                <button class=" btn blue-button w-100 justify-content-center d-flex"><span
+                                    class="d-flex gap-2"><mat-icon>cancel</mat-icon> Annuler la
+                                    visite</span></button>
+                              </div>
+                        </div>
+                        
+                        </div>
+                        </div>
+          </div>
+        </div>
+        </div>
 
     </mat-tab>
     <mat-tab label="A Louer">Content 2</mat-tab>
