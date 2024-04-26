@@ -31,10 +31,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker'; // Import Ma
     PropertyDetailsComponent,
     GoogleMapsComponent,
   ],
-  exports: [
-    HomeComponent,
-    PropertyComponent,
-    GoogleMapsComponent
-  ]
+  exports: [HomeComponent, PropertyComponent, GoogleMapsComponent],
 })
-export class PropertiesModule { }
+export class PropertiesModule {}
