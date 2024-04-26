@@ -1,102 +1,112 @@
-<h4 mat-dialog-title>Ajouter une propriété</h4>
-<mat-dialog-content>
-    <form #form="ngForm" (submit)="createProperty()">
-        <div class="fs-sm w-100">
-            <label class="mb-3 text-dark">Nom<span class="text-red-500">(*)</span></label>
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Nom</mat-label>
-                <input matInput name="property" [(ngModel)]="data.name" required type="text" #name="ngModel"
-                    placeholder="Property 1">
-                <mat-error *ngIf="(name.dirty || name.touched) && name.invalid">
-                    Nom Invalide
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="fs-sm w-100">
-            <label class="mb-3 text-dark">Description</label>
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Description</mat-label>
-                <input matInput name="description" [(ngModel)]="data.description" class="text-sm" type="text"
-                    #description="ngModel">
-            </mat-form-field>
-        </div>
-        <div class="fs-sm w-100">
-            <label class="mb-3 text-dark">Adresse<span class="text-red-500">(*)</span></label>
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Address</mat-label>
-                <input matInput name="address" [(ngModel)]="data.address" required class="text-sm" type="text"
-                    #address="ngModel">
-                <mat-error *ngIf="(address.dirty || address.touched) && address.invalid">
-                    Adresse Invalide
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="fs-sm w-100">
-            <label class="mb-3 text-dark">Emplacement</label>
-            <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Emplacement</mat-label>
-                <input matInput name="location" [(ngModel)]="data.location" class="text-sm" type="text"
-                    #location="ngModel">
-            </mat-form-field>
-        </div>
-        <div class="fs-sm w-100 mb-3">
-            <mat-form-field class="w-100">
-                <mat-label class="mb-3 text-dark">Etat</mat-label>
-                <mat-select [(value)]="data.state">
-                    <mat-option value="AVAILABLE">Disponible</mat-option>
-                    <mat-option value="UNAVAILABLE">Indisponible</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="fs-sm w-100">
-            <mat-form-field class="w-100">
-                <mat-label class="mb-3 text-dark">Visibilité</mat-label>
-                <mat-select [(value)]="data.visibility">
-                    <mat-option value="PUBLIC">Publique</mat-option>
-                    <mat-option value="PRIVATE">Privée</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="fs-sm w-100">
-            <label class="mb-3 text-dark">Image Principale</label>
-            <div class="bg-gray-100 border-solid p-3 rounded-sm">
-                <div *ngIf="primaryImageLocal.url.length > 0" class="mb-3 relative d-inline-block">
-                    <div class="absolute pos-x pos-y"><mat-icon class="cursor-pointer"
-                            (click)="resetPrimaryImage()">cancel</mat-icon></div>
-                    <img class="rounded-md img-dims" [src]="primaryImageLocal.url" alt="property-1">
-                </div>
-                <div>
-                    <button type="button" mat-raised-button (click)="primaryImageInput.click()">Choose File</button>
-                    <input required hidden (change)="onPrimaryImageSelected($event)" #primaryImageInput type="file"
-                        id="file" accept=".png,.jpg">
-                </div>
+<div class="grid grid-cols-2 dialog-container">
+<div class="form">
+    <h4 mat-dialog-title>Ajouter une propriété</h4>
+    <mat-dialog-content class="custom-dialog">
+        <form #form="ngForm" (submit)="createProperty()">
+            <div class="fs-sm w-100">
+                <label class="mb-3 text-dark">Nom<span class="text-red-500">(*)</span></label>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Nom</mat-label>
+                    <input matInput name="property" [(ngModel)]="data.name" required type="text" #name="ngModel"
+                        placeholder="Property 1">
+                    <mat-error *ngIf="(name.dirty || name.touched) && name.invalid">
+                        Nom Invalide
+                    </mat-error>
+                </mat-form-field>
             </div>
-            <mat-error *ngIf="submitted && primaryImageLocal.file == null">L'image principale est obligatoire
-                !</mat-error>
-        </div>
-        <div class="fs-sm w-100 mb-3">
-            <label class="text-dark mt-4">Images Secondaires(max: 4)</label>
-            <div class="bg-gray-100 border-solid p-3 rounded-sm">
-                <div class="d-flex gap-3 p-3" *ngIf="secondaryImagesLocal.length > 0">
-                    <div *ngFor="let image of secondaryImagesLocal; let index= index" class="relative">
-                        <div class="absolute pos-x pos-y">
-                            <mat-icon (click)="secondaryImagesLocal.splice(index,1)"
-                                class="cursor-pointer">cancel</mat-icon>
-                        </div>
-                        <img [src]="image.url" class="rounded img-dims" [alt]="'property-' + index + 2">
+            <div class="fs-sm w-100">
+                <label class="mb-3 text-dark">Description</label>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Description</mat-label>
+                    <input matInput name="description" [(ngModel)]="data.description" class="text-sm" type="text"
+                        #description="ngModel">
+                </mat-form-field>
+            </div>
+            <div class="fs-sm w-100">
+                <label class="mb-3 text-dark">Adresse<span class="text-red-500">(*)</span></label>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Address</mat-label>
+                    <input matInput name="address" [(ngModel)]="data.address" required class="text-sm" type="text"
+                        #address="ngModel">
+                    <mat-error *ngIf="(address.dirty || address.touched) && address.invalid">
+                        Adresse Invalide
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="fs-sm w-100">
+                <label class="mb-3 text-dark">Emplacement</label>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Emplacement</mat-label>
+                    <input matInput name="location" [(ngModel)]="data.location" class="text-sm" type="text"
+                        #location="ngModel">
+                </mat-form-field>
+            </div>
+            <div class="fs-sm w-100 mb-3">
+                <mat-form-field class="w-100">
+                    <mat-label class="mb-3 text-dark">Etat</mat-label>
+                    <mat-select [(value)]="data.state">
+                        <mat-option value="AVAILABLE">Disponible</mat-option>
+                        <mat-option value="UNAVAILABLE">Indisponible</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="fs-sm w-100">
+                <mat-form-field class="w-100">
+                    <mat-label class="mb-3 text-dark">Visibilité</mat-label>
+                    <mat-select [(value)]="data.visibility">
+                        <mat-option value="PUBLIC">Publique</mat-option>
+                        <mat-option value="PRIVATE">Privée</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="fs-sm w-100">
+                <label class="mb-3 text-dark">Image Principale</label>
+                <div class="bg-gray-100 border-solid p-3 rounded-sm">
+                    <div *ngIf="primaryImageLocal.url.length > 0" class="mb-3 relative d-inline-block">
+                        <div class="absolute pos-x pos-y"><mat-icon class="cursor-pointer"
+                                (click)="resetPrimaryImage()">cancel</mat-icon></div>
+                        <img class="rounded-md img-dims" [src]="primaryImageLocal.url" alt="property-1">
+                    </div>
+                    <div>
+                        <button type="button" mat-raised-button (click)="primaryImageInput.click()">Choose File</button>
+                        <input required hidden (change)="onPrimaryImageSelected($event)" #primaryImageInput type="file"
+                            id="file" accept=".png,.jpg">
                     </div>
                 </div>
-                <div>
-                    <button type="button" mat-raised-button (click)="secondaryImageInput.click()">Choose File</button>
-                    <input hidden (change)="onSecondaryImageSelected($event)" accept=".png,.jpg" multiple="multiple"
-                        #secondaryImageInput type="file" id="file">
-                </div>
+                <mat-error *ngIf="submitted && primaryImageLocal.file == null">L'image principale est obligatoire
+                    !</mat-error>
             </div>
-            <mat-error *ngIf="imagesOutOfBound">Pas plus de quatres images secondaires !</mat-error>
-        </div>
-        <mat-dialog-actions>
-            <button mat-raised-button (click)="onNoClick()">Cancel</button>
-            <button mat-raised-button type="submit" [disabled]="isLoading">Submit</button>
-        </mat-dialog-actions>
-    </form>
-</mat-dialog-content>
+            <div class="fs-sm w-100 mb-3">
+                <label class="text-dark mt-4">Images Secondaires(max: 4)</label>
+                <div class="bg-gray-100 border-solid p-3 rounded-sm">
+                    <div class="d-flex gap-3 p-3" *ngIf="secondaryImagesLocal.length > 0">
+                        <div *ngFor="let image of secondaryImagesLocal; let index= index" class="relative">
+                            <div class="absolute pos-x pos-y">
+                                <mat-icon (click)="secondaryImagesLocal.splice(index,1)"
+                                    class="cursor-pointer">cancel</mat-icon>
+                            </div>
+                            <img [src]="image.url" class="rounded img-dims" [alt]="'property-' + index + 2">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" mat-raised-button (click)="secondaryImageInput.click()">Choose File</button>
+                        <input hidden (change)="onSecondaryImageSelected($event)" accept=".png,.jpg" multiple="multiple"
+                            #secondaryImageInput type="file" id="file">
+                    </div>
+                </div>
+                <mat-error *ngIf="imagesOutOfBound">Pas plus de quatres images secondaires !</mat-error>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>
+<div class="p-4">
+    <span class="block text-xl font-bold pb-2">
+        Choisissez la position de votre propriété
+    </span>
+    <div id="map" class="maps-style"></div>
+    <mat-dialog-actions class="pt-4" >
+        <button mat-raised-button color="warn" (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="createProperty()" type="submit" [disabled]="isLoading">Submit</button>
+    </mat-dialog-actions>
+</div>
+</div>

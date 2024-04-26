@@ -19,3 +19,16 @@
 .pos-y {
     top: -0.5rem;
 }
+
+.maps-style {
+    width: 100%;
+    height: 55vh;
+}
+
+.custom-dialog {
+    height: 100%;
+}
+
+.mat-mdc-dialog-actions {
+    justify-content: end;
+}

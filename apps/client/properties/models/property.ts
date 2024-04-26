@@ -3,6 +3,8 @@ export interface Property {
     description: string;
     address: string;
     location: string;
+    coordinatesLat: number,
+    coordinatesLng: number,
     visibility: 'PUBLIC' | 'PRIVATE';
     state: 'AVAILABLE' | 'UNAVAILABLE'
     image1: string;
