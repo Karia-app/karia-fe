@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouteInfo } from '../google-maps/maps-route.model';
-
 import { HttpClient } from '@angular/common/http';
 import { Property } from '../models/property';
+import { PropertyService } from '../services/property.service';
 
 interface IconUrls {
   [key: string]: string; // Index signature for string keys with string values
@@ -14,32 +14,32 @@ interface IconUrls {
 })
 export class PropertyDetailsComponent implements OnInit {
   httpClient = inject(HttpClient);
-  apiUrl = 'http://172.27.0.1:8080/services/property/api/properties/1'
+  apiUrl = 'http://localhost:8080/services/property/api/properties/1'
   dateBooking: Date;
   routeInfos: RouteInfo[] = [];
   property: Property = {
-    id: 1,
-    name: "apud",
-    description: "ferret wholly",
-    address: "general through brr",
-    location: "thunderhead",
-    coordinatesLat: 14255.19,
-    coordinatesLng: 32276.11,
+    id: 0,
+    name: "fill",
+    description: "fill",
+    address: "fill",
+    location: "fill",
+    coordinatesLat: 0.0,
+    coordinatesLng: 0.0,
     visibility: "PRIVATE",
     state: "AVAILABLE",
-    image1: "unlike idealise",
-    image2: "forgo ick behind",
-    image3: "beautifully slimy",
-    image4: "gleeful",
-    image5: "unless subtle",
-    ownerId: 1050,
+    image1: "fill",
+    image2: "fill",
+    image3: "fill",
+    image4: "fill",
+    image5: "fill",
+    ownerId: 0,
 };
   iconUrls: IconUrls = {
     'DRIVING': '../../../../assets/images/driving.svg',
     'TRANSIT': '../../../../assets/images/walking.svg', 
   };
 
-  constructor(){
+  constructor(private propertyService: PropertyService){
     this.dateBooking = new Date();
   }
 
@@ -49,13 +49,19 @@ export class PropertyDetailsComponent implements OnInit {
   }
 
   fetchData() {
-    this.httpClient.get(this.apiUrl).subscribe((response: any) => {
-      console.log(response);
-      this.property = response.body;
-    })
+    this.propertyService.getPropertyById(1513).subscribe((response: any) => {
+      if (response) {
+        this.property = response;
+      } else {
+        console.error('Property not found');
+      }
+    }, (error) => {
+      console.error('Error fetching property:', error);
+    });
   }
 
   ngOnInit(): void {
+    this.fetchData();
   }
 
 
