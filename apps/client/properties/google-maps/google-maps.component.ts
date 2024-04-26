@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { environment } from 'environments/environment';
+import { environment } from '../../../../libs/environments/environment';
 import { routeStyle } from './routeStyle';
 import { RouteInfo } from './maps-route.model';
 const propertyIcon = '../../../../assets/images/maps-property-location.svg';

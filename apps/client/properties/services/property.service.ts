@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Property } from '../models/property';
 import { ImageData } from '../models/imageData';
 import { FirebaseService } from 'libs/core-data/src/lib/firebase/services/firebase.service';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -65,4 +66,17 @@ export class PropertyService {
     console.log(firebaseImageUrls);
     return firebaseImageUrls;
     }
+ 
+    getProperties(): Observable<Property[]> {
+      const stringifiedUserInfo=localStorage.getItem('token');
+      if(stringifiedUserInfo){
+      const userInfo = JSON.parse(stringifiedUserInfo);
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${userInfo.id_token}`
+      });
+      return this.http.get<Property[]>('http://localhost:8080/services/property/api/properties',{ headers });
+      }else{
+        return of<Property[]>([]);
+      }
+}
   }
