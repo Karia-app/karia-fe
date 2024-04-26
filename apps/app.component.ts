@@ -15,6 +15,5 @@ export class AppComponent {
     return this.router.url != '/' && this.router.url != '/register' && this.router.url != '/forgot'  
   }
 
-
 }
 
