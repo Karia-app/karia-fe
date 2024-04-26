@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { RouteInfo } from '../google-maps/maps-route.model';
 import { HttpClient } from '@angular/common/http';
 import { Property } from '../models/property';
@@ -13,27 +13,14 @@ interface IconUrls {
   styleUrls: ['./property-details.component.scss']
 })
 export class PropertyDetailsComponent implements OnInit {
+  @Output() propertyDataUpdated: EventEmitter<any> = new EventEmitter<any>();
+
+  
   httpClient = inject(HttpClient);
-  apiUrl = 'http://localhost:8080/services/property/api/properties/1'
   dateBooking: Date;
+  propertyEmitter: any;
   routeInfos: RouteInfo[] = [];
-  property: Property = {
-    id: 0,
-    name: "fill",
-    description: "fill",
-    address: "fill",
-    location: "fill",
-    coordinatesLat: 0.0,
-    coordinatesLng: 0.0,
-    visibility: "PRIVATE",
-    state: "AVAILABLE",
-    image1: "fill",
-    image2: "fill",
-    image3: "fill",
-    image4: "fill",
-    image5: "fill",
-    ownerId: 0,
-};
+  property: any;
   iconUrls: IconUrls = {
     'DRIVING': '../../../../assets/images/driving.svg',
     'TRANSIT': '../../../../assets/images/walking.svg', 
@@ -49,9 +36,10 @@ export class PropertyDetailsComponent implements OnInit {
   }
 
   fetchData() {
-    this.propertyService.getPropertyById(1513).subscribe((response: any) => {
+    this.propertyService.getPropertyById(1517).subscribe((response: any) => {
       if (response) {
         this.property = response;
+        this.propertyDataUpdated.emit(this.property);
       } else {
         console.error('Property not found');
       }
@@ -63,6 +51,5 @@ export class PropertyDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.fetchData();
   }
-
 
 }

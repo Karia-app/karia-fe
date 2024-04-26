@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, Output, EventEmitter, Input } from '@angular/core';
 import { environment } from '../../../../libs/environments/environment';
 import { routeStyle } from './routeStyle';
 import { RouteInfo } from './maps-route.model';
@@ -14,7 +14,7 @@ declare const google: any;
 export class GoogleMapsComponent implements AfterViewInit {
 
   @Output() routeInfoReady: EventEmitter<RouteInfo[]> = new EventEmitter<RouteInfo[]>();
-
+  @Input() property: any;
   map: any;
   directionsService: any;
   googleMapsApiKey: string = environment.googleMapsApiKey;
@@ -31,17 +31,18 @@ export class GoogleMapsComponent implements AfterViewInit {
       console.error('Map element with ID "map" not found.');
       return;
     }
+    console.log(this.property);
 
     // Initialize Google Map
     this.map = new google.maps.Map(mapElement, {
-      center: { lat: 36.8065, lng: 10.1815 }, // Default center coordinates for Tunisia
+      center: { lat: this.property.coordinatesLat, lng: this.property.coordinatesLng }, // Default center coordinates for Tunisia
       zoom: 12
     });
 
     this.directionsService = new google.maps.DirectionsService();
 
     try {
-      const location = await this.geocode('Tunis, Tunisia');
+      const location = { lat: this.property.coordinatesLat, lng: this.property.coordinatesLng};
       this.map.setCenter(location);
       this.addMarker(location, 'Property Location', propertyIcon);
 
