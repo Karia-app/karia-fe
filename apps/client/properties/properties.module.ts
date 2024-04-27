@@ -33,10 +33,6 @@ import { TagModule } from 'primeng/tag';
     PropertyDetailsComponent,
     GoogleMapsComponent,
   ],
-  exports: [
-    HomeComponent,
-    PropertyComponent,
-    GoogleMapsComponent
-  ]
+  exports: [HomeComponent, PropertyComponent, GoogleMapsComponent],
 })
-export class PropertiesModule { }
+export class PropertiesModule {}
