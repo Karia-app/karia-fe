@@ -23,7 +23,7 @@ export class HomeComponent {
     'https://static.zerodown.com/photos/34547752/686794609/original.jpg',
   ];
 
-  currentIndex: number[] = Array(6).fill(0);
+  currentIndex: number[] = Array(7).fill(0);
   constructor(private homeservice: HomeService, private router: Router) {}
   // getCurrentSlideUrl(): string {
   //   return `url(${this.images[this.currentIndex]})`;

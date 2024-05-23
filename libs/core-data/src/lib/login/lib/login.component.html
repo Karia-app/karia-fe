@@ -21,11 +21,11 @@
                 <div class="justify-center flex items-center flex-col">
                     <div class="w-100 justify-center flex items-center flex-col">
                         <div class="w-1/2">
-                            <label>Email</label>
+                            <label>Username</label>
                         </div>
-                        <mat-form-field class="w-1/2">
-                            <mat-label>Email</mat-label>
-                            <input matInput placeholder="Email" [(ngModel)]="user.username" type="text" name="email"
+                        <mat-form-field class="w-1/2" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Username" [(ngModel)]="user.username" type="text" name="email"
                                 required />
                         </mat-form-field>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="w-1/2">
                         <label>Password</label>
                     </div>
-                    <mat-form-field class="w-1/2 flex">
+                    <mat-form-field class="w-1/2 flex" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput placeholder="Password" [(ngModel)]="user.password" type="password"
                             name="password" required />

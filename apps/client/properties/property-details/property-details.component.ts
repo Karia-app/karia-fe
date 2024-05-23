@@ -53,7 +53,7 @@ export class PropertyDetailsComponent implements OnInit {
     });
   }
 
-  fetchUserData() {
+ /* fetchUserData() {
     this.propertyService.getUserById(1500).subscribe((response: any) => {
       if (response) {
         this.userInfo.firstName= response.firstName
@@ -66,7 +66,7 @@ export class PropertyDetailsComponent implements OnInit {
     }, (error) => {
       console.error('Error fetching User:', error);
     });
-  }
+  }*/
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

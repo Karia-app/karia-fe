@@ -11,6 +11,9 @@
 .bg-outer-circle {
     background: #D8F4FD;
 }
+::ng-deep .mdc-notched-outline__notch {
+    border-right: none !important;
+  }
 
 .mb-5 {
     margin-bottom: 1.25rem;

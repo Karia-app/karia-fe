@@ -1,4 +1,4 @@
-<mat-grid-list cols="2" class="h-100-vh overflow-scroll">
+<mat-grid-list cols="2" class="h-100-vh overflow-hidden">
     <mat-grid-tile class="h-100-vh">
         <div class="rounded-rt-rb-xl bg-outer-circle w-100 h-150">
             <div class="rounded-rt-rb-xl bg-inner-circle w-90 h-100 flex flex-col justify-center items-center">
@@ -12,7 +12,7 @@
             </div>
         </div>
     </mat-grid-tile>
-    <mat-grid-tile class="h-100-vh">
+    <mat-grid-tile class="h-100-vh overflow-y-scroll">
         <div class="w-100 justify-center flex flex-col items-center">
             <div>
                 <h1 class="text-5xl font-mark-pro">Register</h1>
@@ -23,7 +23,7 @@
                         <div class="w-1/2">
                             <label>First Name</label>
                         </div>
-                        <mat-form-field class="w-1/2">
+                        <mat-form-field class="w-1/2" appearance="outline">
                             <mat-label>First Name</mat-label>
                             <input matInput placeholder="First Name" [(ngModel)]="user.firstName" type="text" name="firstname"
                                 required />
@@ -35,7 +35,7 @@
                         <div class="w-1/2">
                             <label>Last Name</label>
                         </div>
-                        <mat-form-field class="w-1/2">
+                        <mat-form-field class="w-1/2" appearance="outline">
                             <mat-label>Last Name</mat-label>
                             <input matInput placeholder="Doe" [(ngModel)]="user.lastName" type="text" name="lastname"
                                 required />
@@ -47,7 +47,7 @@
                         <div class="w-1/2">
                             <label>Email</label>
                         </div>
-                        <mat-form-field class="w-1/2">
+                        <mat-form-field class="w-1/2" appearance="outline">
                             <mat-label>Email</mat-label>
                             <input matInput placeholder="john.doe@xyz.com" [(ngModel)]="user.email" type="text"
                                 name="email" required />
@@ -71,7 +71,7 @@
                     <div class="w-1/2">
                         <label>Phone Number</label>
                     </div>
-                    <mat-form-field class="w-1/2 flex">
+                    <mat-form-field class="w-1/2 flex" appearance="outline">
                         <mat-label>Phone Number</mat-label>
                         <input matInput [(ngModel)]="user.phoneNumber" type="text" name="phonenumber" required />
                     </mat-form-field>
@@ -81,7 +81,7 @@
                         <div class="w-1/2">
                             <label>Username</label>
                         </div>
-                        <mat-form-field class="w-1/2">
+                        <mat-form-field class="w-1/2" appearance="outline">
                             <mat-label>Username</mat-label>
                             <input matInput placeholder="Username" [(ngModel)]="user.login" type="text" name="username"
                                 required />
@@ -92,7 +92,7 @@
                     <div class="w-1/2">
                         <label>Password</label>
                     </div>
-                    <mat-form-field class="w-1/2 flex">
+                    <mat-form-field class="w-1/2 flex" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput placeholder="Password" [(ngModel)]="user.password" type="password"
                             name="password" required />

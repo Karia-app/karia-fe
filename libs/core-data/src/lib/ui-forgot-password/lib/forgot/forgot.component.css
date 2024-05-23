@@ -11,6 +11,9 @@
 .bg-outer-circle {
     background: #D8F4FD;
 }
+::ng-deep .mdc-notched-outline__notch {
+    border-right: none !important;
+  }
 
 .bg-inner-circle {
     background: #E5F9FF;

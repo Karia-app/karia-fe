@@ -14,6 +14,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker'; // Import MatDatepickerModule
 import { TagModule } from 'primeng/tag';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { TagModule } from 'primeng/tag';
     AvatarModule,
     MatDatepickerModule,
     TagModule,
+    RouterModule
   ],
   declarations: [
     HomeComponent,

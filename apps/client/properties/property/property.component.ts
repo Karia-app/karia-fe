@@ -49,7 +49,10 @@ export class PropertyComponent implements OnInit {
         image5: this.property.image5,
         ownerId: this.property.ownerId
       }
-    })
+      
+    }
+  )
+  this.retrieveProperties();
   }
   ngOnInit() {
     this.retrieveProperties();
